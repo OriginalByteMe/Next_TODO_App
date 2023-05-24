@@ -1,8 +1,10 @@
 import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit';
 import modalReducer from './slices/modalSlice';
+import todoReducer from './slices/todoSlice';
 
 export const combinedReducer = combineReducers({
   modal: modalReducer,
+  todo: todoReducer,
 });
 
 function setupStore(preloadedState?: PreloadedState<RootState>) {
