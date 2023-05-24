@@ -1,21 +1,22 @@
-import SearchBar from '@/components/common/SearchBar';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import UseAnimations from 'react-useanimations';
+import searchToX from 'react-useanimations/lib/searchToX';
 import PrimaryLayout from 'src/components/layouts/PrimaryLayout';
 import { PageWithLayout } from 'src/types/page';
 
 export default function Home(_: PageWithLayout) {
-  const dispatch = useDispatch();
-  const [text, setText] = useState('');
+  const router = useRouter();
 
-  const handleTextChange = (value: string) => {
-    setText(value);
+  const handleButtonClick = () => {
+    router.push('/TodoApp');
   };
 
   return (
     <>
-      <section className="flex items-center justify-center w-screen h-screen bg-slate-200">
-        <SearchBar onSearch={handleTextChange} />
+      <section className="flex items-center justify-center w-screen h-screen ">
+        <button className="btn glass" onClick={handleButtonClick}>
+          <UseAnimations animation={searchToX} size={32} />
+        </button>
       </section>
     </>
   );
